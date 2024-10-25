@@ -11,7 +11,7 @@ This React app helps users evaluate a car's condition and decide whether it's a 
 
 ### `Getting Started`
 
-`Prerequisites`\
+`Prerequisites`
 
 `Google Generative AI API Key:` You need a valid Google API key to access the generative AI service.\
 `Node.js:` Ensure Node.js is installed.
