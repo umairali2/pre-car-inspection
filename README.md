@@ -62,4 +62,4 @@ npm start
 Feel free to submit a pull request or open an issue to suggest improvements.
 
 ### Contact
-For any queries, please contact Syed Umair Ali 03453129882.
+For any queries, please contact Syed Umair Ali sayedumairali@gmail.com.
