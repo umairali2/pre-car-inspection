@@ -4,10 +4,10 @@ This React app helps users evaluate a car's condition and decide whether it's a 
 
 ## Features
 
-`Pre-Inspection Form:` Collects important car details such as mileage, transmission type, body condition, and documentation status.\
-`AI-Powered Car Analysis:` Uses `Google Gemini-1.5-Flash model` to generate detailed feedback on whether the car is worth buying, including pros, cons, and an estimated market price.\
-`Dynamic Recommendations:` Users get a summary and final recommendation based on the provided car information.\
-`Error Handling:` Alerts users if an invalid or unauthorized API key is entered.\
+- `Pre-Inspection Form:` Collects important car details such as mileage, transmission type, body condition, and documentation status.\
+- `AI-Powered Car Analysis:` Uses `Google Gemini-1.5-Flash model` to generate detailed feedback on whether the car is worth buying, including pros, cons, and an estimated market price.\
+- `Dynamic Recommendations:` Users get a summary and final recommendation based on the provided car information.\
+- `Error Handling:` Alerts users if an invalid or unauthorized API key is entered.\
 
 ### `Getting Started`
 
@@ -32,16 +32,16 @@ Run the app and input the API key when prompted.\
 npm start
 
 ### Usage
-`Enter your Google API Key:` The form becomes available only after submitting a valid API key.\
-`Fill in the Car Details:` Complete all sections of the form with relevant information about the car.\
-`Submit for Analysis:` Press the Submit button to get a detailed recommendation.\
-`Review the Results:` The app will display a comprehensive evaluation, including pros, cons, and a suggested price.\
+- `Enter your Google API Key:` The form becomes available only after submitting a valid API key.\
+- `Fill in the Car Details:` Complete all sections of the form with relevant information about the car.\
+- `Submit for Analysis:` Press the Submit button to get a detailed recommendation.\
+- `Review the Results:` The app will display a comprehensive evaluation, including pros, cons, and a suggested price.\
 
 ### Example Fields
-`Car Details:` Name, model, color, mileage, and transmission.
-`Condition Assessment:` Inner/outer body, accident history, tyres, battery status, and mechanical health.
-`Ownership and Documentation:` CPLC status, ownership history, and original number plate.
-`Additional Features:` AC condition, accessories, drive mode, and tax status.
+- `Car Details:` Name, model, color, mileage, and transmission.
+- `Condition Assessment:` Inner/outer body, accident history, tyres, battery status, and mechanical health.
+- `Ownership and Documentation:` CPLC status, ownership history, and original number plate.
+- `Additional Features:` AC condition, accessories, drive mode, and tax status.
 
 ### Dependencies
 - React\
