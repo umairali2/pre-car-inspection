@@ -7,6 +7,8 @@ function App() {
   const [payload, setPayload] = useState();
   const [recommendation, setRrecommendation] = useState("");
   const [loader, setLoader] = useState(false);
+  const [yourAPIKey, setYourAPIKey] = useState();
+  const [showForm, setShowForm] = useState();
 
   const handleChange = (e, key) => {
     const { value } = e.target;
@@ -18,31 +20,38 @@ function App() {
 
   const run = async () => {
     setLoader(true);
-    const chatSession = model.startChat({
-      generationConfig,
-      history: [
-        {
-          role: "user",
-          parts: [
-            {
-              text: "You are a car inspector, and based on the JSON data, you will suggest whether I should buy this car or not in HTML structure like heading and content.",
-            },
-          ],
-        },
-        {
-          role: "user",
-          parts: [
-            {
-              text: "I have some details about a car that I am considering purchasing. Based on the information provided, I need you to evaluate whether it is a good purchase or not. Please provide a detailed analysis of the car's condition, history, and any potential issues or advantages. Mention Positive Aspects with Car Model and Mileage, Transmission, Body Condition, Mechanical Aspects, Legal and Documentation and Negative Aspects with Exterior Condition, Suspension and Pillars, Base Condition, Tyres Condition, Lack of Features, Ownership History, Tax Status and Summary with Pros and Cons and Recommendation and what should be the current market price of the car based on the condition. Here are the details",
-            },
-          ],
-        },
-      ],
-    });
+    try {
+      const chatSession = model.startChat({
+        generationConfig,
+        history: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: "You are a car inspector, and based on the JSON data, you will suggest whether I should buy this car or not in HTML structure like heading and content.",
+              },
+            ],
+          },
+          {
+            role: "user",
+            parts: [
+              {
+                text: "I have some details about a car that I am considering purchasing. Based on the information provided, I need you to evaluate whether it is a good purchase or not. Please provide a detailed analysis of the car's condition, history, and any potential issues or advantages. Mention Positive Aspects with Car Model and Mileage, Transmission, Body Condition, Mechanical Aspects, Legal and Documentation and Negative Aspects with Exterior Condition, Suspension and Pillars, Base Condition, Tyres Condition, Lack of Features, Ownership History, Tax Status and Summary with Pros and Cons and Recommendation and what should be the current market price of the car based on the condition. Here are the details",
+              },
+            ],
+          },
+        ],
+      });
 
-    const result = await chatSession.sendMessage(JSON.stringify(payload));
-    setRrecommendation(result.response.text());
-    setLoader(false);
+      const result = await chatSession.sendMessage(JSON.stringify(payload));
+      setRrecommendation(result.response.text());
+    } catch (error) {
+      setRrecommendation(
+        "An error occurred while processing your request. Your Google API Key might be invalid or unauthorized. Please try again."
+      );
+    } finally {
+      setLoader(false);
+    }
   };
 
   const {
@@ -51,7 +60,7 @@ function App() {
     // HarmBlockThreshold,
   } = require("@google/generative-ai");
 
-  const apiKey = "AIzaSyAziDfdgGalz386wVKSblkfoyREfUey-YA"; // use your own
+  const apiKey = yourAPIKey; // use your own
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const model = genAI.getGenerativeModel({
@@ -66,65 +75,96 @@ function App() {
     responseMimeType: "text/plain",
   };
 
+  const handleYourAPIKey = (input) => {
+    const apiValue = input.target.value;
+    setYourAPIKey(apiValue);
+  };
+
+  const showPreCarInspectionForm = () => {
+    setShowForm(yourAPIKey);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        {loader && (
-          <div className="loader-wrapper">
-            <h1 className="loading">Loading...</h1>
-          </div>
-        )}
-        <h1>Car Pre-Inspection Form</h1>
-        <div className="form-container">
-          {formStructure.map((section) => (
-            <div className="section" key={section.section}>
-              <h2>{section.section}</h2>
-              {section.fields.map((field) => (
-                <div className="form-item-template" key={field.id}>
-                  <label>{field.label}</label>
-                  {field.type === "text" && (
-                    <input
-                      type="text"
-                      onChange={(e) => handleChange(e, field.id)}
-                    />
-                  )}
-                  {field.type === "textarea" && (
-                    <textarea onChange={(e) => handleChange(e, field.id)} />
-                  )}
-                  {field.type === "radio" &&
-                    field.options.map((option) => (
-                      <label key={option}>
-                        {option}
-                        <input
-                          type="radio"
-                          name={field.id}
-                          value={option}
-                          onChange={(e) => handleChange(e, field.id)}
-                        />
-                      </label>
-                    ))}
-                  {field.type === "checkbox" &&
-                    field.options.map((option) => (
-                      <label key={option}>
-                        {option}
-                        <input
-                          type="checkbox"
-                          value={option}
-                          onChange={(e) => handleChange(e, field.id)}
-                        />
-                      </label>
-                    ))}
-                </div>
-              ))}
+      {!showForm && (
+        <>
+          <input
+            style={{ height: "33px" }}
+            type="text"
+            value={yourAPIKey}
+            onChange={handleYourAPIKey}
+          />
+          <button
+            style={{ background: "#464646", color: "#fff", marginLeft: "20px" }}
+            onClick={showPreCarInspectionForm}
+          >
+            Submit
+          </button>
+        </>
+      )}
+
+      {showForm ? (
+        <header className="App-header">
+          {loader && (
+            <div className="loader-wrapper">
+              <h1 className="loading">Loading...</h1>
             </div>
-          ))}
-          <div className="section">
-            <h1>Car Analysis</h1>
-            <div>{parse(recommendation)}</div>
+          )}
+          <h1>Car Pre-Inspection Form</h1>
+          <div className="form-container">
+            {formStructure.map((section) => (
+              <div className="section" key={section.section}>
+                <h2>{section.section}</h2>
+                {section.fields.map((field) => (
+                  <div className="form-item-template" key={field.id}>
+                    <label>{field.label}</label>
+                    {field.type === "text" && (
+                      <input
+                        type="text"
+                        onChange={(e) => handleChange(e, field.id)}
+                      />
+                    )}
+                    {field.type === "textarea" && (
+                      <textarea onChange={(e) => handleChange(e, field.id)} />
+                    )}
+                    {field.type === "radio" &&
+                      field.options.map((option) => (
+                        <label key={option}>
+                          {option}
+                          <input
+                            type="radio"
+                            name={field.id}
+                            value={option}
+                            onChange={(e) => handleChange(e, field.id)}
+                          />
+                        </label>
+                      ))}
+                    {field.type === "checkbox" &&
+                      field.options.map((option) => (
+                        <label key={option}>
+                          {option}
+                          <input
+                            type="checkbox"
+                            value={option}
+                            onChange={(e) => handleChange(e, field.id)}
+                          />
+                        </label>
+                      ))}
+                  </div>
+                ))}
+              </div>
+            ))}
+            <div className="section">
+              <h1>Car Analysis</h1>
+              <div>
+                <div>{parse(recommendation)}</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <button onClick={run}>Submit</button>
-      </header>
+          <button onClick={run}>Submit</button>
+        </header>
+      ) : (
+        <h1>Please enter your google API Key</h1>
+      )}
     </div>
   );
 }
