@@ -31,6 +31,24 @@ Run the app and input the API key when prompted.\
 `Start the app:`\
 npm start
 
+### Usage
+`Enter your Google API Key:` The form becomes available only after submitting a valid API key.\
+`Fill in the Car Details:` Complete all sections of the form with relevant information about the car.\
+`Submit for Analysis:` Press the Submit button to get a detailed recommendation.\
+`Review the Results:` The app will display a comprehensive evaluation, including pros, cons, and a suggested price.\
+
+### Example Fields
+`Car Details:` Name, model, color, mileage, and transmission.
+`Condition Assessment:` Inner/outer body, accident history, tyres, battery status, and mechanical health.
+`Ownership and Documentation:` CPLC status, ownership history, and original number plate.
+`Additional Features:` AC condition, accessories, drive mode, and tax status.
+
+### Dependencies
+- React\
+
+- @google/generative-ai\
+
+- html-react-parser\
 
 ### Contributing
 Feel free to submit a pull request or open an issue to suggest improvements.
