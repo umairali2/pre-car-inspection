@@ -1,4 +1,4 @@
-# `Getting Started`
+# Getting Started
 
 `Prerequisites`
 
@@ -34,3 +34,8 @@ npm start
 - `App.js:` The main React component managing the form, user input, and API interaction.
 - `formStructure:` Defines the fields used in the car pre-inspection form.
 - `Google Generative AI Integration:` Uses the @google/generative-ai package to communicate with Google’s Gemini model.
+
+### Dependencies
+- React
+- @google/generative-ai
+- html-react-parser
