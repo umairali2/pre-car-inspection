@@ -6,17 +6,12 @@ This React app helps users evaluate a car's condition and decide whether it's a 
 ```
 https://umairali2.github.io/pre-car-inspection/ 
 ```
+## Features
 
-### Usage
-- `Enter your Google API Key:` The form becomes available only after submitting a valid API key.\
-- `Fill in the Car Details:` Complete all sections of the form with relevant information about the car.\
-- `Submit for Analysis:` Press the Submit button to get a detailed recommendation.\
-- `Review the Results:` The app will display a comprehensive evaluation, including pros, cons, and a suggested price.\
-
-### Code Structure
-- `App.js:` The main React component managing the form, user input, and API interaction.
-- `formStructure:` Defines the fields used in the car pre-inspection form.
-- `Google Generative AI Integration:` Uses the @google/generative-ai package to communicate with Google’s Gemini model.
+- `Pre-Inspection Form:` Collects important car details such as mileage, transmission type, body condition, and documentation status.\
+- `AI-Powered Car Analysis:` Uses `Google Gemini-1.5-Flash model` to generate detailed feedback on whether the car is worth buying, including pros, cons, and an estimated market price.\
+- `Dynamic Recommendations:` Users get a summary and final recommendation based on the provided car information.\
+- `Error Handling:` Alerts users if an invalid or unauthorized API key is entered.\
 
 ### Example Fields
 - `Car Details:` Name, model, color, mileage, and transmission.
