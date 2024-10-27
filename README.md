@@ -2,6 +2,11 @@
 
 This React app helps users evaluate a car's condition and decide whether it's a good purchase. By filling out the pre-inspection form with key car details, the app uses Google Generative AI to provide an automated recommendation along with a detailed analysis of the vehicle’s condition, highlighting positive and negative aspects.
 
+## Demo
+```
+https://umairali2.github.io/pre-car-inspection/ 
+```
+
 ## Features
 
 - `Pre-Inspection Form:` Collects important car details such as mileage, transmission type, body condition, and documentation status.\
