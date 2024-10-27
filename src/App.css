@@ -109,4 +109,6 @@ button:hover {
 .input-container button {
   background: #464646;
   color: #fff;
+  padding: 4px;
+  box-sizing: content-box;
 }
