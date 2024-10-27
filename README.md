@@ -19,11 +19,6 @@ https://umairali2.github.io/pre-car-inspection/
 - `Ownership and Documentation:` CPLC status, ownership history, and original number plate.
 - `Additional Features:` AC condition, accessories, drive mode, and tax status.
 
-### Dependencies
-- React
-- @google/generative-ai
-- html-react-parser
-
 ### Contributing
 Feel free to submit a pull request or open an issue to suggest improvements.
 
