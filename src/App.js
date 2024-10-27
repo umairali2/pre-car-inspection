@@ -86,23 +86,14 @@ function App() {
   return (
     <div className="App">
       {!showForm && (
-        <>
-          <input
-            style={{ height: "33px" }}
-            type="text"
-            value={yourAPIKey}
-            onChange={handleYourAPIKey}
-          />
-          <button
-            style={{ background: "#464646", color: "#fff", marginLeft: "20px" }}
-            onClick={showPreCarInspectionForm}
-          >
-            Submit
-          </button>
-        </>
+        <div className="input-container">
+          <h1>Please enter your google API Key</h1>
+          <input type="text" value={yourAPIKey} onChange={handleYourAPIKey} />
+          <button onClick={showPreCarInspectionForm}>Submit</button>
+        </div>
       )}
 
-      {showForm ? (
+      {showForm && (
         <header className="App-header">
           {loader && (
             <div className="loader-wrapper">
@@ -162,8 +153,6 @@ function App() {
           </div>
           <button onClick={run}>Submit</button>
         </header>
-      ) : (
-        <h1>Please enter your google API Key</h1>
       )}
     </div>
   );
