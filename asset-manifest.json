@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pre-car-inspection/static/css/main.2923008b.css",
+    "main.css": "/pre-car-inspection/static/css/main.5b1d639b.css",
     "main.js": "/pre-car-inspection/static/js/main.28f6cb67.js",
     "static/js/453.024199d3.chunk.js": "/pre-car-inspection/static/js/453.024199d3.chunk.js",
     "index.html": "/pre-car-inspection/index.html",
-    "main.2923008b.css.map": "/pre-car-inspection/static/css/main.2923008b.css.map",
+    "main.5b1d639b.css.map": "/pre-car-inspection/static/css/main.5b1d639b.css.map",
     "main.28f6cb67.js.map": "/pre-car-inspection/static/js/main.28f6cb67.js.map",
     "453.024199d3.chunk.js.map": "/pre-car-inspection/static/js/453.024199d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2923008b.css",
+    "static/css/main.5b1d639b.css",
     "static/js/main.28f6cb67.js"
   ]
 }
