@@ -88,6 +88,13 @@ function App() {
       {!showForm && (
         <div className="input-container">
           <h1>Please enter your google API Key</h1>
+          <p>
+            Go to{" "}
+            <a href="https://aistudio.google.com/apikey">
+              https://aistudio.google.com/apikey
+            </a>{" "}
+            and click 'Get API key' to obtain yours
+          </p>
           <input type="text" value={yourAPIKey} onChange={handleYourAPIKey} />
           <button onClick={showPreCarInspectionForm}>Submit</button>
         </div>
